@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/animacoes_matriz.uf2'
+elf = 'build/pianimacoes_matriz.elf'

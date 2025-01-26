@@ -30,8 +30,10 @@ uint32_t matrix_rgb(double b, double r, double g)
     return (G << 24) | (R << 16) | (B << 8);
 }
 
+double intensidade = 1.0;
+
 // Função para acionar a matriz de LEDs com o valor de cada pixel e cores
-void desenho_pio(double *desenho, uint32_t valor_led, PIO pio, uint sm, double r, double g, double b)
+void desenho_pio(double *desenho,  uint32_t valor_led, PIO pio, uint sm, double r, double g, double b)
 {
     for (int16_t i = 0; i < NUM_PIXELS; i++) {
         // Ajusta a intensidade de cada LED

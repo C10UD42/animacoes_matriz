@@ -76,6 +76,9 @@ int main() {
                     break;
                 case '3':
                     // Ação para a tecla '3'
+                    animacao_atual = animacoes[3];
+                    animation_running = true;
+                    frame = 0;
                     printf("Tecla '3' pressionada\n");
                     break;
                 case '4':

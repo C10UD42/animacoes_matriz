@@ -7,11 +7,14 @@
 // Definindo o número de LEDs
 #define NUM_PIXELS 25
 
+// Variável global para usar cores personalizadas
+extern bool use_custom_colors;
+extern double custom_r, custom_g, custom_b;
+
 // Função para definir a cor RGB de um LED com base na intensidade dos canais
 uint32_t matrix_rgb(double b, double r, double g);
 
-// Função para acionar a matriz de LEDs com o valor de cada pixel e cores
-void desenho_pio(double *desenho, uint32_t valor_led, PIO pio, uint sm, double r, double g, double b);
+double intensidade = 1;
 
 #include <stdio.h>
 #include "animacoes_matriz.pio.h"
@@ -34,41 +37,20 @@ void desenho_pio(double *desenho,  uint32_t valor_led, PIO pio, uint sm, double 
 {
     for (int16_t i = 0; i < NUM_PIXELS; i++) {
         // Ajusta a intensidade de cada LED
-        double pixel_val = desenho[24 - i] * 1;  // Aplica intensidade
-        
-        if (i % 2 == 0) {
-            valor_led = matrix_rgb(pixel_val, r = 0.0, g = 0.0);
-            pio_sm_put_blocking(pio, sm, valor_led);
+        double pixel_val = desenho[24 - i] * intensidade;  // Aplica intensidade
+
+        if (use_custom_colors) {
+            // Use cores personalizadas
+            valor_led = matrix_rgb(custom_b, custom_r, custom_g);
         } else {
-            valor_led = matrix_rgb(b = 0.0, pixel_val, g = 0.0);
-            pio_sm_put_blocking(pio, sm, valor_led);
+            // Use a lógica padrão para definir as cores
+            if (i % 2 == 0) {
+                valor_led = matrix_rgb(pixel_val, r = 0.0, g = 0.0);
+            } else {
+                valor_led = matrix_rgb(b = 0.0, pixel_val, g = 0.0);
+            }
         }
-        
-    }
-}
 
-void desenho_pio_tecla_d(double *desenho,  uint32_t valor_led, PIO pio, uint sm, double r, double g, double b)
-{
-    for (int16_t i = 0; i < NUM_PIXELS; i++) {
-        // Ajusta a intensidade de cada LED
-        double pixel_val = desenho[24 - i] * 0.5;  // Aplica intensidade
-        
-        
-        valor_led = matrix_rgb(b = 0.0, r = 0.0, pixel_val);
         pio_sm_put_blocking(pio, sm, valor_led);
-        
-    }
-}
-
-void desenho_pio_hashtag(double *desenho,  uint32_t valor_led, PIO pio, uint sm, double r, double g, double b)
-{
-    for (int16_t i = 0; i < NUM_PIXELS; i++) {
-        // Ajusta a intensidade de cada LED
-        double pixel_val = desenho[24 - i] * 0.2;  // Aplica intensidade
-        
-        
-        valor_led = matrix_rgb(pixel_val, pixel_val, pixel_val);
-        pio_sm_put_blocking(pio, sm, valor_led);
-        
     }
 }

@@ -20,11 +20,15 @@
 #include "animacoes/desenho7.h"
 #include "animacoes/desenho8.h"
 #include "animacoes/desenho9.h"
+#include "animacoes/desenhoC.h"
 
-#define NUM_ANIMACOES 10
+#define NUM_ANIMACOES 11
 #define NUM_PIXELS 25 // número de pixels
 
-double* animacoes[NUM_ANIMACOES] = {desenho0[0], desenho1[0], desenho2[0], desenho3[0], desenho4[0], desenho5[0], desenho6[0], desenho7[0], desenho8[0], desenho9[0]};
+double* animacoes[NUM_ANIMACOES] = {desenho0[0], desenho1[0], desenho2[0], desenho3[0], desenho4[0], desenho5[0], desenho6[0], desenho7[0], desenho8[0], desenho9[0], desenhoC[0]};
+// Variáveis globais para cores personalizadas
+bool use_custom_colors = false;
+double custom_r = 0.0, custom_g = 0.0, custom_b = 0.0;
 
 // Função principal
 int main() {
@@ -56,7 +60,7 @@ int main() {
         char pressed_key = keypad_get_key(&keypad);
         if(pressed_key) {
             printf("Tecla pressionada: %c\n", pressed_key);
-            
+            use_custom_colors = false;
             switch (pressed_key) {
                 case '0':
                     animacao_atual = animacoes[0];
@@ -120,6 +124,13 @@ int main() {
                     break;
                 case 'C':
                     // Ação para a tecla 'C'
+                    animacao_atual = animacoes[10];
+                    custom_r = 0.8;  // Define a cor vermelha
+                    custom_g = 0.0;
+                    custom_b = 0.0;
+                    use_custom_colors = true;
+                    animation_running = true;
+                    frame = 0;
                     printf("Tecla 'C' pressionada\n");
                     break;
                 case 'D':

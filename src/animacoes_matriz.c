@@ -128,6 +128,13 @@ int main() {
                     break;
                 case 'B':
                     // Ação para a tecla 'B'
+                    animacao_atual = animacoes[10];
+                    custom_r = 0.0;
+                    custom_g = 0.0;
+                    custom_b = 1.0;
+                    use_custom_colors = true;
+                    animation_running = true;
+                    frame = 0;
                     printf("Tecla 'B' pressionada\n");
                     break;
                 case 'C':

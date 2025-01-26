@@ -138,10 +138,24 @@ int main() {
                     break;
                 case 'D':
                     // Ação para a tecla 'D'
+                    animacao_atual = animacoes[10];
+                    custom_r = 0.0;  // Define a cor vermelha
+                    custom_g = 0.5;
+                    custom_b = 0.0;
+                    use_custom_colors = true;
+                    animation_running = true;
+                    frame = 0;
                     printf("Tecla 'D' pressionada\n");
                     break;
                 case '#':
                     // Ação para a tecla '#'
+                    animacao_atual = animacoes[10];
+                    custom_r = 0.2;  // Define a cor vermelha
+                    custom_g = 0.2;
+                    custom_b = 0.2;
+                    use_custom_colors = true;
+                    animation_running = true;
+                    frame = 0;
                     printf("Tecla '#' pressionada\n");
                 case '*':
                     // Ação para a tecla '*'

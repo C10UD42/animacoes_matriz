@@ -22,6 +22,7 @@
 #include "animacoes/desenho9.h"
 
 #define NUM_ANIMACOES 10
+#define NUM_PIXELS 25 // número de pixels
 
 double* animacoes[NUM_ANIMACOES] = {desenho0[0], desenho1[0], desenho2[0], desenho3[0], desenho4[0], desenho5[0], desenho6[0], desenho7[0], desenho8[0], desenho9[0]};
 
@@ -102,8 +103,12 @@ int main() {
                     printf("Tecla '9' pressionada\n");
                     break;
                 case 'A':
-                    // Ação para a tecla 'A'
-                    printf("Tecla 'A' pressionada\n");
+                    // Desliga todos os LEDs e para as animações
+                    animation_running = false;
+                    for (int i = 0; i < NUM_PIXELS; i++) {
+                        pio_sm_put_blocking(pio, sm, 0);  // Envia valor 0 para desligar o LED
+                    }
+                    printf("Tecla 'A' pressionada: Todos os LEDs desligados e animações paradas\n");
                     break;
                 case 'B':
                     // Ação para a tecla 'B'

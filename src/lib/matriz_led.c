@@ -10,8 +10,6 @@
 // Função para definir a cor RGB de um LED com base na intensidade dos canais
 uint32_t matrix_rgb(double b, double r, double g);
 
-double intensidade = 1;
-
 // Função para acionar a matriz de LEDs com o valor de cada pixel e cores
 void desenho_pio(double *desenho, uint32_t valor_led, PIO pio, uint sm, double r, double g, double b);
 
@@ -29,12 +27,14 @@ uint32_t matrix_rgb(double b, double r, double g)
     return (G << 24) | (R << 16) | (B << 8);
 }
 
+double intensidade = 1.0;
+
 // Função para acionar a matriz de LEDs com o valor de cada pixel e cores
-void desenho_pio(double *desenho, uint32_t valor_led, PIO pio, uint sm, double r, double g, double b)
+void desenho_pio(double *desenho,  uint32_t valor_led, PIO pio, uint sm, double r, double g, double b)
 {
     for (int16_t i = 0; i < NUM_PIXELS; i++) {
         // Ajusta a intensidade de cada LED
-        double pixel_val = desenho[24 - i] * intensidade;  // Aplica intensidade
+        double pixel_val = desenho[24 - i] * 1;  // Aplica intensidade
         
         if (i % 2 == 0) {
             valor_led = matrix_rgb(pixel_val, r = 0.0, g = 0.0);
@@ -43,6 +43,32 @@ void desenho_pio(double *desenho, uint32_t valor_led, PIO pio, uint sm, double r
             valor_led = matrix_rgb(b = 0.0, pixel_val, g = 0.0);
             pio_sm_put_blocking(pio, sm, valor_led);
         }
+        
     }
 }
 
+void desenho_pio_tecla_d(double *desenho,  uint32_t valor_led, PIO pio, uint sm, double r, double g, double b)
+{
+    for (int16_t i = 0; i < NUM_PIXELS; i++) {
+        // Ajusta a intensidade de cada LED
+        double pixel_val = desenho[24 - i] * 0.5;  // Aplica intensidade
+        
+        
+        valor_led = matrix_rgb(b = 0.0, r = 0.0, pixel_val);
+        pio_sm_put_blocking(pio, sm, valor_led);
+        
+    }
+}
+
+void desenho_pio_hashtag(double *desenho,  uint32_t valor_led, PIO pio, uint sm, double r, double g, double b)
+{
+    for (int16_t i = 0; i < NUM_PIXELS; i++) {
+        // Ajusta a intensidade de cada LED
+        double pixel_val = desenho[24 - i] * 0.2;  // Aplica intensidade
+        
+        
+        valor_led = matrix_rgb(pixel_val, pixel_val, pixel_val);
+        pio_sm_put_blocking(pio, sm, valor_led);
+        
+    }
+}

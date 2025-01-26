@@ -51,8 +51,11 @@ pico_sdk_init()
 file(GLOB SOURCES "src/*.c")
 # Inclui todos os arquivos .c da pasta src/lib
 file(GLOB LIB_SOURCES "src/lib/*.c")
+# Inclui todos os arquivos .c da pasta src/animacoes
+file(GLOB ANIMACOES_SOURCES "src/animacoes/*.c")
+
 # Combina todos os arquivos em um único executável
-add_executable(animacoes_matriz ${SOURCES} ${LIB_SOURCES} ${CMAKE_CURRENT_LIST_DIR})
+add_executable(animacoes_matriz ${SOURCES} ${LIB_SOURCES} ${ANIMACOES_SOURCES})
 
 pico_set_program_name(animacoes_matriz "animacoes_matriz")
 pico_set_program_version(animacoes_matriz "0.1")
@@ -62,8 +65,6 @@ pico_enable_stdio_uart(animacoes_matriz 0)
 pico_enable_stdio_usb(animacoes_matriz 1)
 
 pico_generate_pio_header(animacoes_matriz ${CMAKE_CURRENT_LIST_DIR}/animacoes_matriz.pio)
-
-target_sources(animacoes_matriz PRIVATE src/animacoes_matriz.c)
 
 # Add the standard library to the build
 target_link_libraries(animacoes_matriz PRIVATE
@@ -79,11 +80,11 @@ target_link_libraries(animacoes_matriz PRIVATE
 target_include_directories(animacoes_matriz PRIVATE
     ${PICO_SDK_PATH}/src/rp2_common/hardware_pio
     ${CMAKE_CURRENT_LIST_DIR}/src/lib
+    ${CMAKE_CURRENT_LIST_DIR}/src/animacoes
 )
 
 # Add any user requested libraries
 target_link_libraries(animacoes_matriz 
-        
-        )
+)
 
 pico_add_extra_outputs(animacoes_matriz)

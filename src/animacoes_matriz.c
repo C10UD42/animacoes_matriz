@@ -113,6 +113,9 @@ int main() {
                     break;
                 case '9':
                     // Ação para a tecla '9'
+                    animacao_atual = animacoes[9];
+                    animation_running = true;
+                    frame = 0;
                     printf("Tecla '9' pressionada\n");
                     break;
                 case 'A':

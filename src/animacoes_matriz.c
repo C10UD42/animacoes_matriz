@@ -93,6 +93,9 @@ int main() {
                     break;
                 case '5':
                     // Ação para a tecla '5'
+                    animacao_atual = animacoes[5];
+                    animation_running = true;
+                    frame = 0;
                     printf("Tecla '5' pressionada\n");
                     break;
                 case '6':
@@ -128,6 +131,13 @@ int main() {
                     break;
                 case 'B':
                     // Ação para a tecla 'B'
+                    animacao_atual = animacoes[10];
+                    custom_r = 0.0;
+                    custom_g = 0.0;
+                    custom_b = 1.0;
+                    use_custom_colors = true;
+                    animation_running = true;
+                    frame = 0;
                     printf("Tecla 'B' pressionada\n");
                     break;
                 case 'C':

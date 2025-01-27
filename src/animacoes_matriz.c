@@ -172,9 +172,12 @@ int main() {
                     animation_running = true;
                     frame = 0;
                     printf("Tecla '#' pressionada\n");
+                    break;
                 case '*':
                     // Ação para a tecla '*'
-                    printf("Tecla '*' pressionada\n");
+                    reset_usb_boot(0, 0);
+                    printf("Tecla '*' pressionada: Modo de gravação habilitado\n");
+                    break;
                 default:
 
                     break;

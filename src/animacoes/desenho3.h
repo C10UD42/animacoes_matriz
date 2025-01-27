@@ -1,7 +1,6 @@
 #ifndef DESENHO3_H
 #define DESENHO3_H
 
-// Matriz representando o coração pulsante (5x5 LEDs)
 double desenho3[5][25] = {
     { // 1.0 - Coração no pico da intensidade
         0.0, 1.0, 0.0, 1.0, 0.0,
@@ -44,6 +43,4 @@ double desenho3[5][25] = {
     }
 };
 
-
 #endif // DESENHO3_H
-

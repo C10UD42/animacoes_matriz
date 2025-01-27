@@ -37,7 +37,7 @@ int main() {
     PIO pio = pio0;
     bool ok;
     uint32_t valor_led;
-    double r = 1.0, b = 0.0, g = 0.0;
+    double r = 0.0, b = 0.0, g = 0.0;
 
     // Configura a frequência do clock para 128 MHz
     ok = set_sys_clock_khz(128000, false);
@@ -55,8 +55,6 @@ int main() {
     int frame = 0;
     bool animation_running = false;
     double* animacao_atual = animacoes[0];
-    bool tecla_d = false;
-    bool hashtag = false;
 
     while (true) {
         char pressed_key = keypad_get_key(&keypad);
@@ -141,7 +139,7 @@ int main() {
                 case 'D':
                     // Ação para a tecla 'D'
                     animacao_atual = animacoes[10];
-                    custom_r = 0.0;  // Define a cor vermelha
+                    custom_r = 0.0;  // Define a cor verde
                     custom_g = 0.5;
                     custom_b = 0.0;
                     use_custom_colors = true;
@@ -152,7 +150,7 @@ int main() {
                 case '#':
                     // Ação para a tecla '#'
                     animacao_atual = animacoes[10];
-                    custom_r = 0.2;  // Define a cor vermelha
+                    custom_r = 0.2;  // Define a cor branca
                     custom_g = 0.2;
                     custom_b = 0.2;
                     use_custom_colors = true;
@@ -168,15 +166,7 @@ int main() {
             }
             
         }
-        if (animation_running && tecla_d == true){
-            desenho_pio_tecla_d(animacao_atual + (frame * 25), valor_led, pio, sm, r, g, b);
-            frame = (frame + 1) % 5; // Alterna entre os frames de 0 a 4
-        }
-        else if (animation_running && hashtag == true) {
-            desenho_pio_hashtag(animacao_atual + (frame * 25), valor_led, pio, sm, r, g, b);
-            frame = (frame + 1) % 5; // Alterna entre os frames de 0 a 4
-        }
-        else if (animation_running) {
+        if (animation_running) {
             desenho_pio(animacao_atual + (frame * 25), valor_led, pio, sm, r, g, b);
             frame = (frame + 1) % 5; // Alterna entre os frames de 0 a 4
         }

@@ -13,7 +13,7 @@ Nesta tarefa, desenvolvemos um sistema utilizando a **Raspberry Pi Pico W** e um
 - 🔴 **Iluminação Vermelha** (80%) ao pressionar `C`.
 - 🟢 **Iluminação Verde** (50%) ao pressionar `D`.
 - ⚪ **Iluminação Branca** (20%) ao pressionar `#`.
-- 🔊 **Sinal sonoro** usando um qualquer tecla é precionada.
+- 🔊 **Sinal sonoro** usando quando qualquer tecla é pressionada.
 - 🔄 **Modo de gravação** ao pressionar `*` (reboot do Raspberry Pi Pico W).
 
 O sistema foi projetado para ser executado tanto no **simulador Wokwi** quanto em na placa real.  
@@ -120,9 +120,13 @@ Assista ao vídeo demonstrativo do funcionamento do sistema:
 
 O projeto suporta a simulação completa do circuito no Wokwi. Para visualizar a simulação, acesse:  
 🔗 [Simulação no Wokwi](https://www.youtube.com/watch?v=cUP6fKhihbE)  
+[![Simulação no Wokwi](https://img.youtube.com/vi/cUP6fKhihbE/0.jpg)](https://www.youtube.com/watch?v=cUP6fKhihbE)  
+
 
 Além disso, realizamos testes em hardware real utilizando a **Raspberry Pi Pico W**. Confira o vídeo da execução prática:  
 🔗 [Teste em Hardware](https://www.youtube.com/watch?v=BInLH3Vq7gM)  
+[![Teste em Hardware](https://img.youtube.com/vi/BInLH3Vq7gM/0.jpg)](https://www.youtube.com/watch?v=BInLH3Vq7gM)  
+
 
 ## 👥 Equipe de Desenvolvimento
 

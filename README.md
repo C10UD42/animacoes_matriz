@@ -126,15 +126,15 @@ Além disso, realizamos testes em hardware real utilizando a **Raspberry Pi Pico
 
 ## 👥 Equipe de Desenvolvimento
 
-| Nome | GitHub | Commits |
-|------|--------|---------|
-| **Líder:** Claudemir da Silva | [@C10UD42](https://github.com/C10UD42) | 5 |
-| ElissonNadson | [@ElissonNadson](https://github.com/ElissonNadson) | 11 |
-| davims9 | [@davims9](https://github.com/davims9) | 3 |
-| apribeiro-cic | [@apribeiro-cic](https://github.com/apribeiro-cic) | 1 |
-| marcusporto | [@marcusporto](https://github.com/marcusporto) | 1 |
-| GuilhermeFRLopes | [@GuilhermeFRLopes](https://github.com/GuilhermeFRLopes) | 1 |
-| lucasfix | [@lucasfix](https://github.com/lucasfix) | 1 |
+| Nome | GitHub |
+|------|--------|
+| **Líder:** Claudemir da Silva | [@C10UD42](https://github.com/C10UD42) |
+| Elisson Nadson | [@ElissonNadson](https://github.com/ElissonNadson) |
+| Lucas Emanoel | [@lucasfix](https://github.com/lucasfix) |
+| Davi Moura | [@davims9](https://github.com/davims9) |
+| Ariel Pina | [@apribeiro-cic](https://github.com/apribeiro-cic) |
+| Marcus Porto | [@marcusporto](https://github.com/marcusporto) |
+| Guilherme Lopes | [@GuilhermeFRLopes](https://github.com/GuilhermeFRLopes) |
 
 
 ⌨️ Desenvolvido com 💙 por **C10UD42** e equipe 🚀

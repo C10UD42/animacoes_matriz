@@ -24,6 +24,7 @@
 
 #define NUM_ANIMACOES 11
 #define NUM_PIXELS 25 // número de pixels
+#define BUZZER_PIN 21  // Defina o pino do buzzer
 
 double* animacoes[NUM_ANIMACOES] = {desenho0[0], desenho1[0], desenho2[0], desenho3[0], desenho4[0], desenho5[0], desenho6[0], desenho7[0], desenho8[0], desenho9[0], desenhoC[0]};
 // Variáveis globais para cores personalizadas
@@ -51,6 +52,8 @@ int main() {
     uint offset = pio_add_program(pio, &animacoes_matriz_program);
     uint sm = pio_claim_unused_sm(pio, true);
     animacoes_matriz_program_init(pio, sm, offset, OUT_PIN);
+
+    init_buzzer(BUZZER_PIN);  // Inicializa o buzzer
 
     int frame = 0;
     bool animation_running = false;
@@ -190,7 +193,9 @@ int main() {
 
                     break;
             }
-            
+            if (animation_running) {
+                beep(BUZZER_PIN, 100);  // Gera um sinal sonoro quando uma animação é executada
+            }
         }
         if (animation_running) {
             desenho_pio(animacao_atual + (frame * 25), valor_led, pio, sm, r, g, b);

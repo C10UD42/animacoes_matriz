@@ -57,6 +57,7 @@ int main() {
 
     int frame = 0;
     bool animation_running = false;
+    bool buzzer_a = false;
     double* animacao_atual = animacoes[0];
 
     while (true) {
@@ -135,6 +136,7 @@ int main() {
                 case 'A':
                     // Desliga todos os LEDs e para as animações
                     animation_running = false;
+                    buzzer_a = true;
                     for (int i = 0; i < NUM_PIXELS; i++) {
                         pio_sm_put_blocking(pio, sm, 0);  // Envia valor 0 para desligar o LED
                     }
@@ -193,7 +195,7 @@ int main() {
 
                     break;
             }
-            if (animation_running) {
+            if (animation_running || buzzer_a) {
                 beep(BUZZER_PIN, 100);  // Gera um sinal sonoro quando uma animação é executada
             }
         }

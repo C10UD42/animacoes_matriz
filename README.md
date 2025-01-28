@@ -136,7 +136,5 @@ Além disso, realizamos testes em hardware real utilizando a **Raspberry Pi Pico
 | GuilhermeFRLopes | [@GuilhermeFRLopes](https://github.com/GuilhermeFRLopes) | 1 |
 | lucasfix | [@lucasfix](https://github.com/lucasfix) | 1 |
 
----
 
 ⌨️ Desenvolvido com 💙 por **C10UD42** e equipe 🚀
-```

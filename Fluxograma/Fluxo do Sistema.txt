@@ -1,0 +1,22 @@
+Inicialização do Sistema
+
+Configuração
+Inicialização dos dispositivos: Matriz de LEDs, Buzzer, UART e Teclado (Keypad).
+Entrada do Usuário
+
+O sistema aguarda uma tecla ser pressionada no Keypad.
+Determinação da Ação
+Dependendo da tecla pressionada, o sistema executa uma das seguintes ações:
+
+Exibição de Animação na Matriz de LEDs (teclas numéricas).
+Configuração de Cores Personalizadas (tecla #).
+Parada das Animações e desligamento dos LEDs (tecla A).
+Modo de Gravação USB (tecla *).
+Execução da Ação Selecionada
+
+Se for uma animação, o sistema gerencia os frames e atualiza continuamente a matriz.
+Se for uma configuração de cor, os valores RGB são ajustados.
+Se for um comando especial (A ou *), ele é processado imediatamente.
+Saída
+
+Exibição da animação na matriz de LEDs ou execução da ação correspondente.

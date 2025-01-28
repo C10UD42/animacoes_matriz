@@ -1,0 +1,7 @@
+Simulador no Wokwi Geração de animações em uma matriz de LEDs 5x5
+
+https://www.youtube.com/watch?v=cUP6fKhihbE
+
+Geração de animações em uma matriz de LEDs 5x5 ( com a placa e teclado )
+
+https://www.youtube.com/watch?v=BInLH3Vq7gM

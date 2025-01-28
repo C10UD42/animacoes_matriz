@@ -110,8 +110,10 @@ int main() {
                     printf("Tecla '6' pressionada\n");
                     break;
                 case '7':
-                    // Ação para a tecla '7'
-                    printf("Tecla '7' pressionada\n");
+                      // Ação para a tecla '7'
+                    animacao_atual = animacoes[7];
+                    animation_running = true;
+                    printf("Tecla '7' pressionada\n");;
                     break;
                 case '8':
                     // Ação para a tecla '8'

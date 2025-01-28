@@ -1,4 +1,4 @@
-# Projeto de Animações de Matriz de LEDs
+# Projeto de Animações na Matriz de LEDs
 
 ## Descrição
 Este projeto controla uma matriz de LEDs utilizando um Raspberry Pi Pico. O projeto inclui diferentes animações, controle de intensidade e cores dos LEDs, e um buzzer para emitir sons.

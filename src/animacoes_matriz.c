@@ -7,9 +7,12 @@
 #include "pico/bootrom.h"
 #include "animacoes_matriz.pio.h"
 
+//libs
 #include "lib/matriz_led.h"
 #include "lib/buzzer.h"
 #include "lib/keypad.h"
+
+//animações 
 #include "animacoes/desenho0.h"
 #include "animacoes/desenho1.h"
 #include "animacoes/desenho2.h"
@@ -22,7 +25,7 @@
 #include "animacoes/desenho9.h"
 #include "animacoes/desenhoC.h"
 
-#define NUM_ANIMACOES 11
+#define NUM_ANIMACOES 11 // número de animações
 #define NUM_PIXELS 25 // número de pixels
 #define BUZZER_PIN 21  // Defina o pino do buzzer
 
@@ -34,7 +37,8 @@ double custom_r = 0.0, custom_g = 0.0, custom_b = 0.0;
 // Função principal
 int main() {
     Keypad keypad;
-    init_keypad(&keypad);
+    init_keypad(&keypad);  // Inicializa o teclado
+    init_buzzer(BUZZER_PIN);  // Inicializa o buzzer
     PIO pio = pio0;
     bool ok;
     uint32_t valor_led;
@@ -53,13 +57,12 @@ int main() {
     uint sm = pio_claim_unused_sm(pio, true);
     animacoes_matriz_program_init(pio, sm, offset, OUT_PIN);
 
-    init_buzzer(BUZZER_PIN);  // Inicializa o buzzer
-
     int frame = 0;
     bool animation_running = false;
     bool buzzer_a = false;
     double* animacao_atual = animacoes[0];
 
+    //loop principal
     while (true) {
         char pressed_key = keypad_get_key(&keypad);
         if(pressed_key) {
@@ -107,7 +110,7 @@ int main() {
                     break;
                 case '6':
                     // Ação para a tecla '6'
-                    inicializar_desenho6();  // Chama a função de inicialização
+                    inicializar_desenho6(); 
                     animacao_atual = animacoes[6];
                     animation_running = true;
                     frame = 0;
@@ -143,7 +146,7 @@ int main() {
                     printf("Tecla 'A' pressionada: Todos os LEDs desligados e animações paradas\n");
                     break;
                 case 'B':
-                    // Ação para a tecla 'B'
+                    // Acende todos os leds na cor azul com intensidade 100%
                     animacao_atual = animacoes[10];
                     custom_r = 0.0;
                     custom_g = 0.0;
@@ -154,9 +157,9 @@ int main() {
                     printf("Tecla 'B' pressionada\n");
                     break;
                 case 'C':
-                    // Ação para a tecla 'C'
+                    // Acende todos os leds na cor vermelha com intensidade 80%
                     animacao_atual = animacoes[10];
-                    custom_r = 0.8;  // Define a cor vermelha
+                    custom_r = 0.8;  
                     custom_g = 0.0;
                     custom_b = 0.0;
                     use_custom_colors = true;
@@ -165,9 +168,9 @@ int main() {
                     printf("Tecla 'C' pressionada\n");
                     break;
                 case 'D':
-                    // Ação para a tecla 'D'
+                    // Acende todos os leds na cor verde com intensidade 50%
                     animacao_atual = animacoes[10];
-                    custom_r = 0.0;  // Define a cor verde
+                    custom_r = 0.0;  
                     custom_g = 0.5;
                     custom_b = 0.0;
                     use_custom_colors = true;
@@ -176,9 +179,9 @@ int main() {
                     printf("Tecla 'D' pressionada\n");
                     break;
                 case '#':
-                    // Ação para a tecla '#'
+                    // Acende todos os leds na cor branca com intensidade 20%
                     animacao_atual = animacoes[10];
-                    custom_r = 0.2;  // Define a cor branca
+                    custom_r = 0.2;  
                     custom_g = 0.2;
                     custom_b = 0.2;
                     use_custom_colors = true;
@@ -188,6 +191,7 @@ int main() {
                     break;
                 case '*':
                     // Ação para a tecla '*'
+                    beep(BUZZER_PIN, 100);
                     reset_usb_boot(0, 0);
                     printf("Tecla '*' pressionada: Modo de gravação habilitado\n");
                     break;
@@ -196,7 +200,7 @@ int main() {
                     break;
             }
             if (animation_running || buzzer_a) {
-                beep(BUZZER_PIN, 100);  // Gera um sinal sonoro quando uma animação é executada
+                beep(BUZZER_PIN, 100);  // Gera um sinal sonoro quando um botão é pressionado
             }
         }
         if (animation_running) {

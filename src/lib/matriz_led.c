@@ -14,6 +14,7 @@ extern double custom_r, custom_g, custom_b;
 // Função para definir a cor RGB de um LED com base na intensidade dos canais
 uint32_t matrix_rgb(double b, double r, double g);
 
+// Variável que define intensidade
 double intensidade = 1;
 
 #include <stdio.h>
@@ -41,7 +42,7 @@ void desenho_pio(double *desenho, uint32_t valor_led, PIO pio, uint sm, double r
             // Use cores personalizadas
             valor_led = matrix_rgb(custom_b, custom_r, custom_g);
         } else {
-            // Use a lógica padrão para definir as cores
+            // definindo por padrão as cores azul e vermelha
             if (i % 2 == 0) {
                 valor_led = matrix_rgb(pixel_val, r = 0.0, g = 0.0);
             } else {

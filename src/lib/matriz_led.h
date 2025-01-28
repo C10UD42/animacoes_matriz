@@ -15,4 +15,7 @@ uint32_t matrix_rgb(double b, double r, double g);
 // Função para acionar a matriz de LEDs com o valor de cada pixel e cores
 void desenho_pio(double *desenho, uint32_t valor_led, PIO pio, uint sm, double r, double g, double b);
 
+// Função para inicializar o buzzer
+void init_buzzer(uint8_t buzzer_pin);
+
 #endif // MATRIZ_LED_H

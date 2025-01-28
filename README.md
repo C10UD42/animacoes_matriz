@@ -1,4 +1,4 @@
-```md
+md
 # Animações em Matriz de LEDs 5x5
 
 Este repositório contém a implementação de animações para uma matriz de LEDs 5x5, utilizando o **Raspberry Pi Pico W** e um **teclado matricial 4x4**, desenvolvido no simulador **Wokwi**.

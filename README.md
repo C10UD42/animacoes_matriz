@@ -1,4 +1,4 @@
-# Tarefa 02: Geração de Animações em Matriz de LEDs 5x5  
+# Tarefa: Geração de Animações em Matriz de LEDs 5x5  
 
 ## 📌 Descrição do Projeto
 

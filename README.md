@@ -1,5 +1,3 @@
-Aqui está o `README.md` atualizado com a equipe de desenvolvimento e o líder do projeto destacado:  
-
 ```md
 # Animações em Matriz de LEDs 5x5
 
